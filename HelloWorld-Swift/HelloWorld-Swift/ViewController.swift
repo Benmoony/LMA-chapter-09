@@ -11,7 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var lblOutput: UILabel!
+    @IBOutlet weak var clear: UIButton!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +22,18 @@ class ViewController: UIViewController {
     
     //Say hello on button tap
     @IBAction func showOutput(sender: AnyObject) {
-        lblOutput.text = "Hello " + txtName.text!;
-        //lblOutput.text = "Hello \(txtName.text!).";
+        if(txtLastName.text == "" || txtName.text == "" ){
+            lblOutput.text = "Hello World!"
+        
+        }
+        else{
+            lblOutput.text = "Hello \(txtName.text!) \(txtLastName.text!).";
+        }
+    }
+    @IBAction func clearText(sender: AnyObject) {
+        lblOutput.text="Hello"
+        txtLastName.text=""
+        txtName.text=""
     }
     
     //Hide the on-screen keyboard
